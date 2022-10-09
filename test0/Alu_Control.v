@@ -11,6 +11,7 @@ reg [2:0] func_code;
 
 always @ (*)
 begin
+	$display("Control");
 	case (func_field)
 	6'h20: func_code = 3'h0;
 	6'h22: func_code = 3'h1;

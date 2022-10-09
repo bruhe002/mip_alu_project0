@@ -1,6 +1,7 @@
 `timescale 1ns/1ns
 `include "Alu_Top.v"
 
+
 module Alu_Top_tb;
 
 // Inputs
@@ -23,15 +24,16 @@ Alu_Top uut (
 	.zero(zero)
 );
 
+
 initial begin
 	// Initialize Inputs
+	$display("here");
     $dumpfile("Alu_Top_tb.vcd");
     $dumpvars(0,Alu_Top_tb);
 	opcode = 0;
 	func_field = 0;
 	A = 0;
 	B = 0;
-	$dumpfile("Alu_Top_tb.vcd");
 	#30;
 	A=32'h2222; B=32'h1111;
 	opcode=6'h00;func_field=6'h20; 
@@ -46,8 +48,6 @@ initial begin
 	A=32'h1111; B=32'h2222;
 	opcode=6'h00;func_field=6'h2A;
 	#30;
-    $dumpfile("Alu_Top_tb.vcd");
-    $display("cool");
 end
-      
+    
 endmodule

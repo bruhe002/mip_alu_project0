@@ -16,6 +16,7 @@ assign zero = !(|result);
 
 always @ (*)
 begin
+	$display("Core");
 	case(alu_control)
 	3'h0: result = A + B;
 	3'h1: result = A - B;
