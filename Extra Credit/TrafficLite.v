@@ -1,6 +1,7 @@
 module TrafficLite(EWCar, NSCar, EWLite, NSLite, clock); //input and output
     input EWCar, NSCar, clock;
-    output EWLite, NSLite;
+    output EWLite; 
+    output NSLite;
 
     reg state;
     initial state = 0; //set initial state
@@ -12,6 +13,6 @@ module TrafficLite(EWCar, NSCar, EWLite, NSLite, clock); //input and output
     always @(posedge clock) //all state updates on a positive clock edge
         case (state)
             0: state = EWCar; //change state only if EWCar
-            1: state = NSCar; //change state only if NSCar
+            1: state = ~NSCar; //change state only if NSCar
         endcase
 endmodule
